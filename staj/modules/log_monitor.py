@@ -3,6 +3,7 @@ import time
 import config
 from collections import defaultdict, deque
 import re
+import json
 
 class LogMonitor:
     def __init__(self,callback):
@@ -12,11 +13,11 @@ class LogMonitor:
         self.ssh_success_patern = re.compile(r"Accepted (?:password|publickey) for (\w+) from (\d+\.\d+\.\d+\.\d+)")
         self.ssh_logout = re.compile(r"Disconnected from (?:user (\w+) )?(\d+\.\d+\.\d+\.\d+)")
         self.ssh_preauth = re.compile(r"Did not receive identification string from (\d+\.\d+\.\d+\.\d+)") #Port Scanning
-        self.sudo = re.compile(r"(\w+) : TTY=.* ; COMMAND=(.*)")
+        self.sudo = re.compile(r"(\w+) : TTY=.* ; COMMAND=(.*)") #SUDO DIŞINDA YAZMADAN ALT-ÜST USERLAR İÇİN İŞLEM YAPILMASINI ÖLÇ
         self.sudo_failed_pattern = re.compile(r"(\w+) : (\d+) incorrect password attempts")
         self.new_user_created = re.compile(r"new user: name=(\w+), UID=(\d+)")
         self.password_changed_pattern = re.compile(r"password changed for (\w+)")
-        self.ufw_block = re.compile(r"\[UFW BLOCK\] IN=(\w+) .* SRC=(\d+\.\d+\.\d+\.\d+) DST=(\d+\.\d+\.\d+\.\d+) .* PROTO=(\w+) DPT=(\d+)") #for port scan detection
+        self.ufw_block = re.compile(r"\[UFW BLOCK\] IN=(\w+) .* SRC=(\d+\.\d+\.\d+\.\d+) DST=(\d+\.\d+\.\d+\.\d+) .* PROTO=(\w+) DPT=(\d+)") #for port scan detection İP BLOCKLAMA
         self.failed_attempts = defaultdict(deque)
         self.ip_risk_score = defaultdict(float)
         self.port_scan_tracker = defaultdict(set)
@@ -44,16 +45,25 @@ class LogMonitor:
         if invalid_user:
             user, ip = invalid_user.groups()
             self.threat_event(ip,user,score=25,event="SSH_INVALID_USER_ATTEMPT")
+            log = {"user": user, "ip": ip, "event": "SSH_INVALID_USER_ATTEMPT"}
+            log_json = open("log.json","w")
+            log_json.write(json.dumps(log))
+            log_json.close()
             return
         invalid_pass = self.ssh_failed.search(line)
         if invalid_pass:
             user, ip = invalid_pass.groups()
             self.threat_event(ip,user,score=10,event="SSH_INVALID_PASSWORD_ATTEMPT")
+            log = {"user": user, "ip": ip, "event": "SSH_INVALID_PASSWORD_ATTEMPT"}
+            log_json = open("log.json","w")
+            log_json.write(json.dumps(log))
+            log_json.close()
             return
         port_scan_attempt = self.ssh_preauth.search(line)
         if port_scan_attempt:
             ip = port_scan_attempt.group(1)
             self.threat_event(ip,user="UNKNOWN",score=15,event="SSH_PORT_SCAN_ATTEMPT")
+            log = {"user": "unknown", "ip": ip, "event":"SSH_PORT_SCAN_ATTEMPT"}
             return
         ssh_success = self.ssh_success_patern.search(line)
         if ssh_success:
@@ -66,7 +76,8 @@ class LogMonitor:
             user, ip = ssh_logout1.groups()
             if ip in self.active_ssh_sessions:
                 self.active_ssh_sessions[ip].discard(user)
-            self.callback("SSH_DISCONNECTED",ip, "SSH Logout | User: {} | IP: {}".format(user,ip))
+                self.callback("SSH_DISCONNECTED",ip, "SSH Logout | User: {} | IP: {}".format(user,ip))
+       
             return
         new_user = self.new_user_created.search(line)
         if new_user:
@@ -108,7 +119,7 @@ class LogMonitor:
         total_attempts = len(self.failed_attempts[ip])
         self.callback(event, ip,"THREAT({}) | User: {} | IP: {} | Risk Score: {}".format(event,user,ip,current_score))
         if current_score >= config.RISK_SCORE_THRESHOLD:
-            msg = (f"GELİŞMİŞ TEHDİT/BRUTE-FORCE TESPİT EDİLDİ! "
+            msg = (f"Threat Finded!!!"
                    f"IP: {ip} | Total Risk Score: {current_score}/{config.RISK_SCORE_THRESHOLD} | Total attempts: {total_attempts}")      
             self.callback("ADVANCED_THREAT_DETECTED", ip, msg)
             self.failed_attempts[ip].clear()
