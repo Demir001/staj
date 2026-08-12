@@ -16,3 +16,6 @@ YAPILACAKLAR:
 
 
 -Zero-day denemeleri için bir dataset gerekli
+
+
+-Whitelist ve greylist ekle blacklist e almadan önce ip greyliste düşsün eğer normal davranırsa tekrardan normale al eğer anormal davranırsa blacklist
