@@ -1,12 +1,6 @@
 YAPILACAKLAR:
 
--En uygun dataset ile entegre bir şekilde çalışılması sağlanacak
-
-
--Gerekirse basit bir model eğitilecek (CPU zorlanmadan çalışması gerek)
-
-
--Ona göre engellemeyi yapacak
+-Ban mekanizması
 
 
 -İç ağda olup anormal davranan ip karantinaya alınacak
