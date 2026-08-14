@@ -1,0 +1,63 @@
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [INFO]
+MODULE   : AUTH_GUARD
+EVENT    : HUMAN_TYPO_TOLERATED
+TARGET/IP: 203.0.113.10
+SUMMARY  : Human password typo tolerated for target 203.0.113.10. (No penalty/ban applied).
+DETAILS  : Tolerated human password typo (1/5) for user 'dev' from 203.0.113.10. No ban applied.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : RAPID_BRUTE_FORCE
+TARGET/IP: 203.0.113.10
+SUMMARY  : High-velocity automated brute-force attack burst detected from 203.0.113.10.
+DETAILS  : Rapid Automated Brute-Force Burst Detected from 203.0.113.10 (2 attempts in 5s).
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [NOTICE]
+MODULE   : AUTH_GUARD
+EVENT    : AUTH_RECOVERY_FORGIVEN
+TARGET/IP: 203.0.113.10
+SUMMARY  : Legitimate authentication succeeded for 203.0.113.10. Past typo failures forgiven.
+DETAILS  : User 'dev' authenticated successfully. Previous 2 password typos forgiven for IP 203.0.113.10.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : DICTIONARY_PROBE
+TARGET/IP: 185.220.101.5
+SUMMARY  : Automated dictionary scanning attack targeting privileged accounts from 185.220.101.5.
+DETAILS  : Malicious Dictionary Probe targeting privileged user 'root' from 185.220.101.5.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : EXTERNAL_IP_BAN
+TARGET/IP: 185.220.101.5
+SUMMARY  : EXTERNAL WAN IP 185.220.101.5 dropped on firewall due to security violations.
+DETAILS  : [EXTERNAL] IP 185.220.101.5 BANNED for 60 MINUTES (CRITICAL Level). Enforcement: FIREWALL_DROP. Reason: C2 Reverse Shell Exploit. (Auto-Unban Time: 2026-08-14 15:44:09)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 192.168.1.45
+SUMMARY  : INTERNAL LAN IP 192.168.1.45 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 192.168.1.45 BANNED for 15 MINUTES (CRITICAL Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Unauthorized Root Escalation. (Auto-Unban Time: 2026-08-14 14:59:09)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [WARNING]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 192.168.1.99
+SUMMARY  : INTERNAL LAN IP 192.168.1.99 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 192.168.1.99 BANNED for 5 MINUTES (HIGH Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Zero-Day Script Probe. (Auto-Unban Time: 2026-08-14 14:49:09)
+------------------------------------------------------------------
