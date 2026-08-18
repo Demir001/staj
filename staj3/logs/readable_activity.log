@@ -1,0 +1,268 @@
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [INFO]
+MODULE   : AUTH_GUARD
+EVENT    : HUMAN_TYPO_TOLERATED
+TARGET/IP: 203.0.113.10
+SUMMARY  : Human password typo tolerated for target 203.0.113.10. (No penalty/ban applied).
+DETAILS  : Tolerated human password typo (1/5) for user 'dev' from 203.0.113.10. No ban applied.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : RAPID_BRUTE_FORCE
+TARGET/IP: 203.0.113.10
+SUMMARY  : High-velocity automated brute-force attack burst detected from 203.0.113.10.
+DETAILS  : Rapid Automated Brute-Force Burst Detected from 203.0.113.10 (2 attempts in 5s).
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [NOTICE]
+MODULE   : AUTH_GUARD
+EVENT    : AUTH_RECOVERY_FORGIVEN
+TARGET/IP: 203.0.113.10
+SUMMARY  : Legitimate authentication succeeded for 203.0.113.10. Past typo failures forgiven.
+DETAILS  : User 'dev' authenticated successfully. Previous 2 password typos forgiven for IP 203.0.113.10.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : DICTIONARY_PROBE
+TARGET/IP: 185.220.101.5
+SUMMARY  : Automated dictionary scanning attack targeting privileged accounts from 185.220.101.5.
+DETAILS  : Malicious Dictionary Probe targeting privileged user 'root' from 185.220.101.5.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : EXTERNAL_IP_BAN
+TARGET/IP: 185.220.101.5
+SUMMARY  : EXTERNAL WAN IP 185.220.101.5 dropped on firewall due to security violations.
+DETAILS  : [EXTERNAL] IP 185.220.101.5 BANNED for 60 MINUTES (CRITICAL Level). Enforcement: FIREWALL_DROP. Reason: C2 Reverse Shell Exploit. (Auto-Unban Time: 2026-08-14 15:44:09)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 192.168.1.45
+SUMMARY  : INTERNAL LAN IP 192.168.1.45 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 192.168.1.45 BANNED for 15 MINUTES (CRITICAL Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Unauthorized Root Escalation. (Auto-Unban Time: 2026-08-14 14:59:09)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 14:44:09
+LEVEL    : [WARNING]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 192.168.1.99
+SUMMARY  : INTERNAL LAN IP 192.168.1.99 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 192.168.1.99 BANNED for 5 MINUTES (HIGH Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Zero-Day Script Probe. (Auto-Unban Time: 2026-08-14 14:49:09)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:01
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : DICTIONARY_PROBE
+TARGET/IP: 198.51.100.55
+SUMMARY  : Automated dictionary scanning attack targeting privileged accounts from 198.51.100.55.
+DETAILS  : Malicious Dictionary Probe targeting privileged user 'admin' from 198.51.100.55.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:01
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : DICTIONARY_PROBE
+TARGET/IP: 198.51.100.55
+SUMMARY  : Automated dictionary scanning attack targeting privileged accounts from 198.51.100.55.
+DETAILS  : Malicious Dictionary Probe targeting privileged user 'root' from 198.51.100.55.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:01
+LEVEL    : [WARNING]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 198.51.100.55
+SUMMARY  : INTERNAL LAN IP 198.51.100.55 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 198.51.100.55 BANNED for 5 MINUTES (HIGH Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Cumulative Risk Exceeded (80.0/50 - 2 Events - Triggered by AI_ATTACK_DETECTED). (Auto-Unban Time: 2026-08-14 16:10:01)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:01
+LEVEL    : [WARNING]
+MODULE   : AUTH_GUARD
+EVENT    : DICTIONARY_PROBE
+TARGET/IP: 198.51.100.55
+SUMMARY  : Automated dictionary scanning attack targeting privileged accounts from 198.51.100.55.
+DETAILS  : Malicious Dictionary Probe targeting privileged user 'support' from 198.51.100.55.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:01
+LEVEL    : [NOTICE]
+MODULE   : SESSION_TRACKER
+EVENT    : USER_LOGIN
+TARGET/IP: 192.168.1.75
+SUMMARY  : USER_LOGIN event recorded for target 192.168.1.75. (User 'hacker_user' logged in successfully. (IP: 192.168.1.75 | Terminal: pts/1))
+DETAILS  : User 'hacker_user' logged in successfully. (IP: 192.168.1.75 | Terminal: pts/1)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:01
+LEVEL    : [CRITICAL]
+MODULE   : USER_ACTIVITY
+EVENT    : COMMAND_DESTRUCTIVE_MUTATION
+TARGET/IP: 192.168.1.75
+SUMMARY  : AI [ATTACK] (99.5% Confidence) | Web Application Attack (SQLi/XSS/XXE/LFI) (MITRE T1190 - APPLICATION_EXPLOIT) detected from 192.168.1.75.
+DETAILS  : Session [SESS_hacker_user_192.168.1.75_pts_1_1786712701]: User 'hacker_user' executed 'rm -rf / --no-preserve-root'. (Summary: Dangerous Destructive System Data Wipe Attempt)
+AI ENGINE: Verdict: ATTACK (Confidence: 99.46914255780653%) | Layer: 1. Layer (Pure-NumPy Ensemble)
+TAXONOMY : MITRE: T1190 | Category: APPLICATION_EXPLOIT
+PLAYBOOK : Block source IP on firewall; inspect web server access logs and patch vulnerable endpoint.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:05:02
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 192.168.1.75
+SUMMARY  : INTERNAL LAN IP 192.168.1.75 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 192.168.1.75 BANNED for 15 MINUTES (CRITICAL Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Session Hostile Activity: 'rm -rf / --no-preserve-root' (CRITICAL Level - Risk: 90). (Auto-Unban Time: 2026-08-14 16:20:01)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:15:22
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [NOTICE]
+MODULE   : SESSION_TRACKER
+EVENT    : USER_LOGIN
+TARGET/IP: 192.168.1.10
+SUMMARY  : USER_LOGIN event recorded for target 192.168.1.10. (User 'developer' logged in via SSH.)
+DETAILS  : User 'developer' logged in via SSH.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:15:22
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [INFO]
+MODULE   : AUTH_GUARD
+EVENT    : HUMAN_TYPO_TOLERATED
+TARGET/IP: 192.168.1.10
+SUMMARY  : Human password typo tolerated for target 192.168.1.10. (Safe Operation - No ban applied).
+DETAILS  : Password typo 1/5 tolerated.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:15:22
+STATUS   : [MALICIOUS ATTACK (ZARARLI SALDIRI İŞLEMİ)]
+LEVEL    : [CRITICAL]
+MODULE   : SIEM_MONITOR
+EVENT    : AI_ATTACK_DETECTED
+TARGET/IP: 185.220.101.5
+SUMMARY  : AI [ATTACK] (99.8% Confidence) | Command & Control / Reverse Shell (MITRE T1071 - NETWORK_C2) detected from 185.220.101.5.
+DETAILS  : Reverse shell launched.
+AI ENGINE: Verdict: ATTACK (Confidence: 99.8%) | Layer: 1. Layer (Pure-NumPy Ensemble)
+TAXONOMY : MITRE: T1071 | Category: NETWORK_C2
+PLAYBOOK : Sever outbound connection and block IP.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:15:34
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [NOTICE]
+MODULE   : SESSION_TRACKER
+EVENT    : USER_LOGIN
+TARGET/IP: 192.168.1.10
+SUMMARY  : USER_LOGIN event recorded for target 192.168.1.10. (User 'developer' logged in via SSH.)
+DETAILS  : User 'developer' logged in via SSH.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:15:34
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [INFO]
+MODULE   : AUTH_GUARD
+EVENT    : HUMAN_TYPO_TOLERATED
+TARGET/IP: 192.168.1.10
+SUMMARY  : Human password typo tolerated for target 192.168.1.10. (Safe Operation - No ban applied).
+DETAILS  : Password typo 1/5 tolerated.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:15:34
+STATUS   : [MALICIOUS ATTACK (ZARARLI SALDIRI İŞLEMİ)]
+LEVEL    : [CRITICAL]
+MODULE   : SIEM_MONITOR
+EVENT    : AI_ATTACK_DETECTED
+TARGET/IP: 185.220.101.5
+SUMMARY  : AI [ATTACK] (99.8% Confidence) | Command & Control / Reverse Shell (MITRE T1071 - NETWORK_C2) detected from 185.220.101.5.
+DETAILS  : Reverse shell launched.
+AI ENGINE: Verdict: ATTACK (Confidence: 99.8%) | Layer: 1. Layer (Pure-NumPy Ensemble)
+TAXONOMY : MITRE: T1071 | Category: NETWORK_C2
+PLAYBOOK : Sever outbound connection and block IP.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:19:58
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [INFO]
+MODULE   : AUTH_GUARD
+EVENT    : HUMAN_TYPO_TOLERATED
+TARGET/IP: 203.0.113.88
+SUMMARY  : Human password typo tolerated for target 203.0.113.88. (Safe Operation - No ban applied).
+DETAILS  : Tolerated human password typo (1/5) for user 'hacker' from 203.0.113.88. No ban applied.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:19:59
+STATUS   : [MALICIOUS OPERATION (ZARARLI İŞLEM)]
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 198.51.100.1
+SUMMARY  : INTERNAL LAN IP 198.51.100.1 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 198.51.100.1 BANNED for 15 MINUTES (CRITICAL Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Cumulative Risk Exceeded (85.0/50 - 1 Events - Triggered by BASH_DEV_TCP_SHELL). (Auto-Unban Time: 2026-08-14 16:34:59)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:33:16
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [NOTICE]
+MODULE   : SESSION_TRACKER
+EVENT    : USER_LOGIN
+TARGET/IP: 192.168.1.20
+SUMMARY  : USER_LOGIN event recorded for target 192.168.1.20. (User 'developer' logged in successfully. (IP: 192.168.1.20 | Terminal: pts/0))
+DETAILS  : User 'developer' logged in successfully. (IP: 192.168.1.20 | Terminal: pts/0)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:33:17
+STATUS   : [MALICIOUS OPERATION (ZARARLI İŞLEM)]
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : EXTERNAL_IP_BAN
+TARGET/IP: 194.26.29.112
+SUMMARY  : EXTERNAL WAN IP 194.26.29.112 dropped on firewall due to security violations.
+DETAILS  : [EXTERNAL] IP 194.26.29.112 BANNED for 60 MINUTES (CRITICAL Level). Enforcement: FIREWALL_DROP. Reason: Cumulative Risk Exceeded (75.0/50 - 1 Events - Triggered by AI_ATTACK_DETECTED). (Auto-Unban Time: 2026-08-14 17:33:17)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:33:18
+STATUS   : [SAFE OPERATION (GÜVENLİ İŞLEM)]
+LEVEL    : [NOTICE]
+MODULE   : SESSION_TRACKER
+EVENT    : USER_LOGIN
+TARGET/IP: 192.168.1.88
+SUMMARY  : USER_LOGIN event recorded for target 192.168.1.88. (User 'bad_actor' logged in successfully. (IP: 192.168.1.88 | Terminal: pts/2))
+DETAILS  : User 'bad_actor' logged in successfully. (IP: 192.168.1.88 | Terminal: pts/2)
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:33:18
+STATUS   : [MALICIOUS ATTACK (ZARARLI SALDIRI İŞLEMİ)]
+LEVEL    : [CRITICAL]
+MODULE   : USER_ACTIVITY
+EVENT    : COMMAND_DESTRUCTIVE_MUTATION
+TARGET/IP: 192.168.1.88
+SUMMARY  : AI [ATTACK] (99.5% Confidence) | Web Application Attack (SQLi/XSS/XXE/LFI) (MITRE T1190 - APPLICATION_EXPLOIT) detected from 192.168.1.88.
+DETAILS  : Session [SESS_bad_actor_192.168.1.88_pts_2_1786714398]: User 'bad_actor' executed 'rm -rf / --no-preserve-root'. (Summary: Dangerous Destructive System Data Wipe Attempt)
+AI ENGINE: Verdict: ATTACK (Confidence: 99.46914255780653%) | Layer: 1. Layer (Pure-NumPy Ensemble)
+TAXONOMY : MITRE: T1190 | Category: APPLICATION_EXPLOIT
+PLAYBOOK : Block source IP on firewall; inspect web server access logs and patch vulnerable endpoint.
+------------------------------------------------------------------
+------------------------------------------------------------------
+TIMESTAMP: 2026-08-14 16:33:18
+STATUS   : [MALICIOUS OPERATION (ZARARLI İŞLEM)]
+LEVEL    : [CRITICAL]
+MODULE   : BAN_MANAGER
+EVENT    : INTERNAL_IP_BAN
+TARGET/IP: 192.168.1.88
+SUMMARY  : INTERNAL LAN IP 192.168.1.88 quarantined/isolated due to hostile activity.
+DETAILS  : [INTERNAL] IP 192.168.1.88 BANNED for 15 MINUTES (CRITICAL Level). Enforcement: SESSION_PORT_ISOLATION. Reason: Session Hostile Activity: 'rm -rf / --no-preserve-root' (CRITICAL Level - Risk: 90). (Auto-Unban Time: 2026-08-14 16:48:18)
+------------------------------------------------------------------

