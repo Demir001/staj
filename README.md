@@ -1,15 +1,7 @@
 YAPILACAKLAR:
 
--Ban mekanizması
+-Sadece sudo içersinde ban atıyor herhangi bir zararlı komutta ban atmalı
 
+-active user bazen karışıyor ip gözüküyor sudo su yapınca local_system diyor ikisine de
 
--İç ağda olup anormal davranan ip karantinaya alınacak
-
-
--SHA256 ile dosyada değişiklik olup olmadığı test edilecek kritik dosyalar için
-
-
--Whitelist ve greylist ekle blacklist e almadan önce ip greyliste düşsün eğer normal davranırsa tekrardan normale al eğer anormal davranırsa blacklist
-
-
--Eğer bir kullanıcının belli bir sürede yaptığı anomali miktarı artarsa banla.
+-ssh çok hızlı ban atıyor problem ona yeni bir sistem kurmamız lazım
